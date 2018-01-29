@@ -1,5 +1,5 @@
 "use strict";
-
+/* jshint node: true */
 // Basic express setup:
 
 const PORT          = 8080;

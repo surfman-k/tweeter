@@ -1,4 +1,5 @@
 "use strict";
+/* jshint node: true */
 
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
@@ -24,4 +25,4 @@ module.exports = function makeDataHelpers(db) {
     }
 
   };
-}
+};

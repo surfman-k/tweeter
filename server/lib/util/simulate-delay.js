@@ -1,4 +1,5 @@
 "use strict";
+/* jshint node: true */
 
 // This module exports a utility function for simulating
 // delay (for example, in network or file system operations)
