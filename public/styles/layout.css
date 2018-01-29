@@ -10,9 +10,14 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+main{
+	width: 450px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 140px;
+	background-color: white;
+}
 
 body {
   margin: 0;
