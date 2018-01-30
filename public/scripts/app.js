@@ -86,19 +86,44 @@ function createTweetElement(twee) {
             "</div>");
 
 	return $obj;
-
 }
 
 function renderTweets(db){
-
 	for(let index of db){
 		let $tweet = createTweetElement(index);
 		$('#tweets-container').append("<br>" + "<br>").append($tweet);
 	}
-
 }
 
 renderTweets(data);
+
+
+
+$("form").on("submit", function( event ) {
+  event.preventDefault();
+  let formTweet = $(this).serialize();
+  $.post( "/tweets",formTweet);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });
