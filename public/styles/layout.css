@@ -26,6 +26,89 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+
+ .feed:hover {
+  opacity: 1;
+ }
+
+ .feed:hover .flags{
+  display: inline;
+ }
+
+ .feed {
+  opacity: 0.8;
+  background-color: white;
+  border: 0.5px solid #B9B9B9;
+  border-radius: 5px;
+  margin: 0px 2em 0px 2em;
+  padding-bottom: 1em;
+  height: 12em;
+  position:relative;
+}
+
+.tweetop {
+  background-color: #eee;
+  margin-top: 0.1%;
+  margin-right: 0.1%;
+  margin-left: 0.2%;
+  height: 4em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.userinfo {
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 2.7em;
+  display: inline;
+}
+
+.username{
+  position: absolute;
+  top: 0;
+  display: inline;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.usertag{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.8em;
+  display: inline;
+  margin-right: 2%;
+}
+
+.tweetbody{
+  position: absolute;
+  margin-top: 2em;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.tweetfoot hr {
+  border-top: 0.2px solid #eee;
+  margin-left: 0.2%;
+  margin-right: 0.2%;
+  margin-top: 5.5em;
+}
+
+.tweetfoot p{
+  position: absolute;
+  bottom: 0;
+  padding-left: 2%;
+  font-size: 0.75em;
+  padding-top: 6px;
+}
+
+.flags{
+  display: none;
+  margin-bottom: -4%;
+  clear: both;
+}

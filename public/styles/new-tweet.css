@@ -17,12 +17,12 @@ textarea {
   height: 3.5em;
 }
 
-h2 {
+.compose {
   margin-top: 10px;
   margin-left: 3%;
 }
 
-h2:after
+.compose:after
 {
   content:' ';
   width: 97%;
