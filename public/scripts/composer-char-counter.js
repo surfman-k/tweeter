@@ -1,8 +1,8 @@
 $( document ).ready(function() {
-	console.log('hello!');
 
 	$( "#new-tweet" ).keyup(function() {
-	  console.log($(this).val().length);
+	  let counterVal = $(this).parent().find('.counter');
+	  counterVal.text(140 - ($(this).val().length));
 	});
 
 });
