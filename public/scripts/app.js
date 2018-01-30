@@ -50,8 +50,19 @@ function renderTweets(db){
 $("form").on("submit", function( event ) {
   event.preventDefault();
   let formTweet = $(this).serialize();
-  $.post("/tweets", formTweet);
-  
+  if(formTweet === "text="){
+    alert("You can't tweet an empty tweet!");
+    return;
+  }
+  else if (formTweet.length > 145){
+    alert("Your tweet can't be more than 140 characters!");
+    return;
+  } 
+  else {
+    console.log(formTweet.length - 5);
+    $.post("/tweets", formTweet);
+  }
+
 });
 
 function loadTweets(){
