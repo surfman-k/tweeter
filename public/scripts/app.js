@@ -91,4 +91,12 @@ $("form").on("submit", function( event ) {
   }
 });
 
+$(".composeButton").click(function() {
+  $(".new-tweet").slideToggle( "slow", function() {
+    $("#new-tweet").select();
+  });
+});
+
+
+
 });
