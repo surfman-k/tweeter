@@ -16,7 +16,7 @@ function createTweetElement(twee) {
 	.append("<p class='usertag'>" + twee.user.handle + "</p>");
 
 	$("<div class='tweebod'>").appendTo($obj)
-	.append("<p class='tweetbody'>" + twee.content.text + "</p>");
+	.append($("<p class='tweetbody'>").text(twee.content.text));
 
 	$("<footer class='tweetfoot'>").appendTo($obj)
 	.append("<hr class='tweetfoot'>")
@@ -41,29 +41,11 @@ function createTweetElement(twee) {
 }
 
 function renderTweets(db){
-	for(let index of db){
-		let $tweet = createTweetElement(index);
-		$('#tweets-container').append("<br>" + "<br>").append($tweet);
+	for(let i = 0; i < db.length; i++){
+		let $tweet = createTweetElement(db[i]);
+		$('#tweets-container').prepend($tweet).prepend("<br>");
 	}
 }
-
-$("form").on("submit", function( event ) {
-  event.preventDefault();
-  let formTweet = $(this).serialize();
-  if(formTweet === "text="){
-    alert("You can't tweet an empty tweet!");
-    return;
-  }
-  else if (formTweet.length > 145){
-    alert("Your tweet can't be more than 140 characters!");
-    return;
-  } 
-  else {
-    console.log(formTweet.length - 5);
-    $.post("/tweets", formTweet);
-  }
-
-});
 
 function loadTweets(){
   $.get("/tweets", function(data) {
@@ -73,23 +55,40 @@ function loadTweets(){
 
 loadTweets();
 
+$("form").on("submit", function( event ) {
+  event.preventDefault();
+  let formTweet = $(this).serialize();
+    
+  function addLastTweet(data){
+    $.get("/tweets", function(data) {
+      let $newTweet = createTweetElement(data[data.length - 1]);
+      $("#tweets-container").prepend($newTweet).prepend("<br>");
+    });
+  }
+
+  if(formTweet === "text="){
+    alert("You can't tweet an empty tweet!");
+    return;
+  }
+  else if (formTweet.length > 145){
+    alert("Your tweet can't be more than 140 characters!");
+    return;
+  } 
+  else {
 
 
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: formTweet,
+      async: false
+      })
+    .then(addLastTweet());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $("form")[0].reset();
+    $(".counter").text("140");
+  
+  }
+});
 
 });
