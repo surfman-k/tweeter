@@ -8,7 +8,7 @@ const bodyParser    = require("body-parser");
 const app           = express();
 
 const MongoClient 	= require("mongodb").MongoClient;
-const MONGODB_URI = "mongodb://test:test@ds121588.mlab.com:21588/tweeter2";
+const MONGODB_URI = process.env.MONGODB_URI;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
