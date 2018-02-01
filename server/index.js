@@ -2,7 +2,7 @@
 /* jshint node: true */
 // Basic express setup:
 require('dotenv').config();
-const PORT          = 8080;
+const PORT          = (process.env.PORT || 8080);
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
@@ -48,6 +48,7 @@ app.use("/tweets", tweetsRoutes);
 //db.close();
 
 });
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
