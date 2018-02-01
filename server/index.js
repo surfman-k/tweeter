@@ -2,7 +2,7 @@
 /* jshint node: true */
 // Basic express setup:
 require('dotenv').config();
-const PORT          = (process.env.PORT || 8080);
+const PORT          = (process.env.PORT || 3000);
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
