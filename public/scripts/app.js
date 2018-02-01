@@ -22,8 +22,8 @@ function createTweetElement(twee) {
 	.append("<hr class='tweetfoot'>")
 	.append("<p class='tweetfoot'>" + Math.floor((Date.now() - twee.created_at)/86400000) + " Days Ago" + "</p>")
 	.append("<div style='float:right; margin-right: 5px'>" +
-              "<a href='/like'>" +
-              "<img class='flags' src='/images/like.png' height='16' width='20'>" +
+              "<a href='#' >" +
+              "<img class='flags' id='likeButton' src='/images/like.png' height='16' width='20'>" +
               "</a>" +
             "</div>" +
             "<div style='float:right'>" +
@@ -39,6 +39,7 @@ function createTweetElement(twee) {
 
 	return $obj;
 }
+
 
 function renderTweets(db){
 	for(let i = 0; i < db.length; i++){
@@ -80,10 +81,12 @@ $("form").on("submit", function( event ) {
     $.ajax({
       method: "POST",
       url: "/tweets",
-      data: formTweet,
-      async: false
+      data: formTweet
       })
-    .then(addLastTweet());
+    .done(function () {
+      addLastTweet();
+    }
+    );
 
     $("form")[0].reset();
     $(".counter").text("140");
@@ -96,7 +99,5 @@ $(".composeButton").click(function() {
     $("#new-tweet").select();
   });
 });
-
-
 
 });

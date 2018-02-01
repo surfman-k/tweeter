@@ -44,7 +44,7 @@ body {
  }
 
 .feed {
-  opacity: 0.8;
+  opacity: 0.78;
   background-color: white;
   border: 0.5px solid #B9B9B9;
   border-radius: 5px;
@@ -113,3 +113,12 @@ body {
 .flags{
   display: none;
 }
+
+
+@media (max-width: 450px){
+  main{ 
+    width: 350px; 
+  }
+}
+
+
