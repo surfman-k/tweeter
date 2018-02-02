@@ -10,14 +10,17 @@ function createTweetElement(twee) {
 
 	let $obj = $("<article>").addClass("feed");
 
+  //Top of a tweet box with avater, username, and tweeter handle.
 	$("<header class='tweetop'>").appendTo($obj)
 	.append("<img class='username' src=" + twee.user.avatars.small + " height='50' width='50' >")
 	.append("<h2 class='userinfo'>" + twee.user.name + "</h2>")
 	.append("<p class='usertag'>" + twee.user.handle + "</p>");
 
+  //Main body of a tweet box that includes the tweet.
 	$("<div class='tweebod'>").appendTo($obj)
 	.append($("<p class='tweetbody'>").text(twee.content.text));
 
+  //Footer of tweetbox with creation date in days and three buttons
 	$("<footer class='tweetfoot'>").appendTo($obj)
 	.append("<hr class='tweetfoot'>")
 	.append("<p class='tweetfoot'>" + Math.floor((Date.now() - twee.created_at)/86400000) + " Days Ago" + "</p>")
@@ -40,7 +43,7 @@ function createTweetElement(twee) {
 	return $obj;
 }
 
-
+//function that goes through all tweets in MongoDB and adds them chronologically
 function renderTweets(db){
 	for(let i = 0; i < db.length; i++){
 		let $tweet = createTweetElement(db[i]);
@@ -48,6 +51,7 @@ function renderTweets(db){
 	}
 }
 
+//function that loads tweeter feed upon loading page
 function loadTweets(){
   $.get("/tweets", function(data) {
     renderTweets(data);
@@ -56,10 +60,13 @@ function loadTweets(){
 
 loadTweets();
 
+//Functionality upon submiting a new tweet.
+
 $("form").on("submit", function( event ) {
   event.preventDefault();
   let formTweet = $(this).serialize();
     
+  //function that adds the user's tweet to the top of the feed. 
   function addLastTweet(data){
     $.get("/tweets", function(data) {
       let $newTweet = createTweetElement(data[data.length - 1]);
@@ -67,17 +74,19 @@ $("form").on("submit", function( event ) {
     });
   }
 
+  //verifies that user is not trying to submit an empty tweet
   if(formTweet === "text="){
     alert("You can't tweet an empty tweet!");
     return;
   }
+  //verifies that the tweet isn't longer than 140 characters
   else if (formTweet.length > 145){
     alert("Your tweet can't be more than 140 characters!");
     return;
   } 
   else {
 
-
+    //ajax request to add tweet to MongoDB
     $.ajax({
       method: "POST",
       url: "/tweets",
@@ -88,12 +97,13 @@ $("form").on("submit", function( event ) {
     }
     );
 
-    $("form")[0].reset();
-    $(".counter").text("140");
+    $("form")[0].reset(); //reset compose tweet form to default
+    $(".counter").text("140");  //reset character counter to 140
   
   }
 });
 
+//clicking on the compose button in nav bar will toggle the compose tweet box
 $(".composeButton").click(function() {
   $(".new-tweet").slideToggle( "slow", function() {
     $("#new-tweet").select();

@@ -17,3 +17,9 @@ Tweeter is a simple, single-page Twitter clone.
 - Body-Parse
 - jQuery
 - MongoDB
+
+## Screenshots
+
+![Screenshot of feed](https://github.com/surfman-k/tweeter/blob/master/docs/feed.png?raw=true)
+![Screenshot of compose box](https://github.com/surfman-k/tweeter/blob/master/docs/compose.png?raw=true)
+![Screenshot of hovering over tweet in feed](https://github.com/surfman-k/tweeter/blob/master/docs/hover.png?raw=true)
