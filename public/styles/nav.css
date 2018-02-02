@@ -21,10 +21,6 @@
 	padding-left: 10px;
 }
 
-button {
-    margin-left: 1px;
-}
-
 .composeButton{
 	float: right;
 	background-color: #E9FFFD;
@@ -52,65 +48,5 @@ button {
 }
 
 .composeButton:active {
-  transform: translateY(4px);
-}
-
-.loginButton{
-    float: right;
-    background-color: #E9FFFD;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: #00a087;
-    padding: 15px 15px;
-    text-align: center;
-    display: inline-block;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.loginButton:hover {
-    float: right;
-    background-color: #eee;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
-    padding: 15px 15px;
-    text-align: center;
-    display: inline-block;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.loginButton:active {
-  transform: translateY(4px);
-}
-
-.logoutButton{
-    float: right;
-    background-color: #E9FFFD;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: #00a087;
-    padding: 15px 15px;
-    text-align: center;
-    display: inline-block;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.logoutButton:hover {
-    float: right;
-    background-color: #eee;
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
-    padding: 15px 15px;
-    text-align: center;
-    display: inline-block;
-    font-size: 1.5em;
-    margin-top: 10px;
-}
-
-.logoutButton:active {
   transform: translateY(4px);
 }

@@ -56,7 +56,7 @@ function loadTweets(){
 
 loadTweets();
 
-$("#composeForm").on("submit", function( event ) {
+$("form").on("submit", function( event ) {
   event.preventDefault();
   let formTweet = $(this).serialize();
     

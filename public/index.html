@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" href="/images/favicon.ico">
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -13,14 +12,13 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/login-reg.css" type="text/css" />
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/login-reg.js"></script>
+    <script type="text/javascript" src="/scripts/likeButton.js"></script>
   </head>
 
   <body>
@@ -29,76 +27,14 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
-      <button class="logoutButton"> Logout </button>
       <button class="composeButton"> Compose </button>
-      <button class="loginButton" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Register</button>
-      <button class="loginButton" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     </nav>
-
-    <!-- Login Form here -->
-
-    <div id="id01" class="modal">
-
-    <form class="loginForm">
-
-      <h2>Login</h2>
-
-      <div class="logincontainer">
-
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-            
-        <button class="loginBtn" type="submit">Login</button>
-
-        <button class="cancelBtn" type="button" onclick="document.getElementById('id01').style.display='none'">Cancel</button>
-
-      </div>
-    
-    </form>
-
-    </div>
-
-
-    <!-- Registration Form here -->
-
-    <div id="id02" class="modal">
-
-      <form class="regForm">
-
-        <h2>Register</h2>
-
-        <div class="logincontainer">
-
-          <label><b>First Name</b></label>
-          <input type="text" placeholder="John" name="fname" required>
-
-          <label><b>Last Name</b></label>
-          <input type="text" placeholder="Smith" name="lname" required>
-
-          <label><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
-
-          <label><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-              
-          <button class="loginBtn" type="submit">Register</button>
-          <button class="cancelBtn" type="button" onclick="document.getElementById('id02').style.display='none'">Cancel</button>
-        </div>
-    
-      </form>
-
-    </div>
-
-
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
         <h2 class="compose">Compose Tweet</h2>
-        <form id="composeForm" method="POST" action="/tweets/" >
+        <form method="POST" action="/tweets/" >
           <textarea id="new-tweet" name="text" placeholder="What are you humming about?"></textarea>
           <input id="tweet-button" type="submit" value="Tweet">
           <span class="counter">140</span>
